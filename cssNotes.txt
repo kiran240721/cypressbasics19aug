@@ -1,0 +1,8 @@
+
+// 1. css for id -- id='attributevalue' 
+                 -- #attributevalue --- this is css for id
+                 -- [id='attributevalue'] --- one more way for css selector
+// 2. css for class -- class='attributevalue1 attributevalue2 attributevalue3' 
+                    -- .attributevalue1.attributevalue2.attributevalue3
+                    -- [class='attributevalue']
+// 3. attr='value'  -- [attr='value']

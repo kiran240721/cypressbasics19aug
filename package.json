@@ -1,0 +1,15 @@
+{
+  "name": "cypressbasics19aug",
+  "version": "1.0.0",
+  "description": "automation for cypress learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "velocity att",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "12.5"
+  }
+}
