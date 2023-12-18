@@ -1,6 +1,12 @@
 ///<reference types="cypress"/>
 
 describe('WebdriverUniversity app',()=>{
+    let contactDetails
+    before(()=>{
+        cy.fixture("contactData").then((data)=>{
+            contactDetails = data
+        })
+    })
     beforeEach("repeating steps",()=>{   // beforeEach hook
         // step1 -- visiting the website
         cy.visit('https://www.webdriveruniversity.com/') 
@@ -11,64 +17,69 @@ describe('WebdriverUniversity app',()=>{
     it("visit and check the application",()=>{
 
         // step3 - typed into first name field
-        cy.get('input[placeholder="First Name"]').type('abc')
+        //cy.get('input[placeholder="First Name"]').type('shekhar')
+        cy.get('input[placeholder="First Name"]').type(contactDetails.firstName)
 
         // step4 - typed into last name field
-        cy.get('[name="last_name"]').type('abc')
+        // cy.get('[name="last_name"]').type('c')
+        cy.get('[name="last_name"]').type(contactDetails.lastName)
 
         // step5 - typed into email field
-        cy.get('[class="feedback-input"]').eq(2).type('a@A.com')
+        // cy.get('[class="feedback-input"]').eq(2).type('shekhar@example.com')
+        cy.get('[class="feedback-input"]').eq(2).type(contactDetails.email)
 
         // step6 - typed commnet
-        cy.get('[placeholder="Comments"]').type('for testing purposes')
+        //cy.get('[placeholder="Comments"]').type('for testing purposes')
+        cy.get('[placeholder="Comments"]').type(contactDetails.comment)
 
         //step7 - click on the submit button
         cy.get('[value="SUBMIT"]').click()
 
         // step8 - verifying the message
-        cy.get('#contact_reply h1').should('include.text','Thank You for your Message!')
+        //cy.get('#contact_reply h1').should('include.text', 'Thank You for your Message!')
+        cy.get('#contact_reply h1').should('include.text', contactDetails.message)
     })
 
-    it.skip("Contact us -- invalid email id message",()=>{
-        // step1 -- visiting the website
-        // cy.visit('https://www.webdriveruniversity.com/') 
+//     it.skip("Contact us -- invalid email id message",()=>{
+//         // step1 -- visiting the website
+//         // cy.visit('https://www.webdriveruniversity.com/') 
         
-        // // step2 - clicking on contact us also removed target attribute
-        // cy.get("#contact-us").invoke('removeAttr','target').click() 
+//         // // step2 - clicking on contact us also removed target attribute
+//         // cy.get("#contact-us").invoke('removeAttr','target').click() 
 
-        // step3 - typed into first name field
-        cy.get('input[placeholder="First Name"]').type('abc')
+//         // step3 - typed into first name field
+//         cy.get('input[placeholder="First Name"]').type('abc')
 
-        // step4 - typed into last name field
-        cy.get('[name="last_name"]').type('abc')
+//         // step4 - typed into last name field
+//         cy.get('[name="last_name"]').type('abc')
 
-        // step5 - typed into email field
-        cy.get('[class="feedback-input"]').eq(2).type('a@')
+//         // step5 - typed into email field
+//         cy.get('[class="feedback-input"]').eq(2).type('a@')
 
-        // step6 - typed commnet
-        cy.get('[placeholder="Comments"]').type('for testing purposes')
+//         // step6 - typed commnet
+//         cy.get('[placeholder="Comments"]').type('for testing purposes')
 
-        //step7 - click on the submit button
-        cy.get('[value="SUBMIT"]').click()
+//         //step7 - click on the submit button
+//         cy.get('[value="SUBMIT"]').click()
 
-        // step8 - verifying the message
-        cy.get('body').should('include.text','Error: Invalid email address')
-    })
+//         // step8 - verifying the message
+//         cy.get('body').should('include.text','Error: Invalid email address')
+//     })
 
-    it("Contact us -- blank form submission message",()=>{
-        // step1 -- visiting the website
-        // cy.visit('https://www.webdriveruniversity.com/') 
+//     it("Contact us -- blank form submission message",()=>{
+//         // step1 -- visiting the website
+//         // cy.visit('https://www.webdriveruniversity.com/') 
         
-        // // step2 - clicking on contact us also removed target attribute
-        // cy.get("#contact-us").invoke('removeAttr','target').click() 
+//         // // step2 - clicking on contact us also removed target attribute
+//         // cy.get("#contact-us").invoke('removeAttr','target').click() 
 
-        //click on the submit button with empty form
-        cy.get('[value="SUBMIT"]').click()
+//         //click on the submit button with empty form
+//         cy.get('[value="SUBMIT"]').click()
 
-        // step8 - verifying the message
-        cy.get('body').should('include.text','Error: all fields are required')
-    })
-})
+//         // step8 - verifying the message
+//         cy.get('body').should('include.text','Error: all fields are required')
+//     })
+ })
 
 // describe("",()=>{
 //     it("",()=>{
