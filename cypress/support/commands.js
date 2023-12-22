@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// reusabilty, readbility, mainability
+
+Cypress.Commands.add('visitPopupAlerts', () => {
+    //1. visiting the website
+    cy.visit('https://www.webdriveruniversity.com/') 
+
+    //2. click on the alert tab
+    cy.get('#popup-alerts').invoke('removeAttr', 'target').click()
+})
+
+Cypress.Commands.add('visitApp',() => {
+    cy.visit('https://www.lambdatest.com/selenium-playground/shadow-dom')
+})

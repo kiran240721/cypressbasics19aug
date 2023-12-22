@@ -8,16 +8,18 @@ describe('auto suggetion selection',() => {
         //2. click on the iframe tab
         cy.get('#autocomplete-textfield').invoke('removeAttr', 'target').click()
 
+
         //3.type the fooditem letter
-        cy.get('#myInput').type('g')
+        cy.selectFoodItem('g')
+        //cy.get('#myInput').type('g')
 
         //select particular fooditem populated from the list of typed letter
-        cy.get('#myInputautocomplete-list div').each((foodItem)=>{
-            if(foodItem.text() === 'Granola'){
-                cy.wrap(foodItem).click()
-                cy.get('#submit-button').click()
-                cy.url().should('include','Granola')
-            }
-        })
+        // cy.get('#myInputautocomplete-list div').each((foodItem)=>{
+        //     if(foodItem.text() === 'Granola'){
+        //         cy.wrap(foodItem).click()
+        //         cy.get('#submit-button').click()
+        //         cy.url().should('include','Granola')
+        //     }
+        // })
     })
 })

@@ -1,11 +1,12 @@
 ///<reference types="cypress"/>
 describe("alert handling",()=>{
     it('popup message validations',()=>{
-        //1. visiting the website
-        cy.visit('https://www.webdriveruniversity.com/') 
+        cy.visitPopupAlerts()
+        // //1. visiting the website
+        // cy.visit('https://www.webdriveruniversity.com/') 
 
-        //2. click on the alert tab
-        cy.get('#popup-alerts').invoke('removeAttr', 'target').click()
+        // //2. click on the alert tab
+        // cy.get('#popup-alerts').invoke('removeAttr', 'target').click()
 
         //3. click on the alert button
         cy.get('#button1').click()
