@@ -16,9 +16,10 @@ describe("mouse actions",()=>{
 
         //5. validating the drop action
         cy.get('#droppable b').should('include.text', 'Dropped')
+       
     })
 
-    it.only('hovering actions',()=>{
+    it('hovering actions',()=>{
         //1. visiting the website
         cy.visit('https://www.webdriveruniversity.com/') 
 
@@ -30,5 +31,7 @@ describe("mouse actions",()=>{
 
         //4. double click
         cy.get('#double-click').dblclick()
+
+        cy.get('#double-click').should('have.css', 'background-color' , 'rgb(147, 203, 90)')
     })
 })

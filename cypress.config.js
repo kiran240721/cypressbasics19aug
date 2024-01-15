@@ -16,6 +16,7 @@ module.exports = defineConfig({
       })
     },
     watchForFileChanges:false,
+    // includeShadowDom : true,
     //pageLoadTimeout: 15000
   },
 });
